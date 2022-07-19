@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->autoIncrement();
 
             $table->string('name', 20);
 
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
 
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('car_status', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->autoIncrement();
 
             $table->integer('cars_id');
             $table->foreign('cars_id')->references('id')->on('cars');    

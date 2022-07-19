@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('car_management', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->autoIncrement();
 
             $table->integer('cars_id');
             $table->foreign('cars_id')->references('id')->on('cars');
 
-            $table->integer('department_id');
+            $table->integer('department_id')->nullable();
             $table->foreign('department_id')->references('id')->on('departments');    
             
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');  
             
             $table->date('date_from');

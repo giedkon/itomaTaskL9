@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->autoIncrement();
 
             $table->string('number', 20);
-            $table->date('year_made');
+            $table->year('year_made');
             $table->string('model', 50);
 
             $table->float('price', 50, 2);
