@@ -18,7 +18,7 @@ class CarSeeder extends Seeder
      */
     public function run()
     {
-        $countCars = 10;
+        $countCars = 100;
         $countStatusForCars = 20;
         $countManagementForCars = 20;
 
