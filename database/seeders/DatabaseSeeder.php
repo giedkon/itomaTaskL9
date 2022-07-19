@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
             DepartmentSeeder::class,
             StatusSeeder::class,
             CarSeeder::class,
-            //CarStatusSeeder::class,
-            //CarManagementSeeder::class
         ]);
     }
 }
