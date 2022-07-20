@@ -9,5 +9,8 @@ class CarStatus extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string Table override
+     */
     protected $table = 'car_status';
 }

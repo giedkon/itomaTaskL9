@@ -8,7 +8,7 @@ class jsonCarsResourceCollection extends ResourceCollection
 {
 
     /**
-     * @var
+     * @var date $dateFilter filter to use in Car status and management relationships
      */
     private $dateFilter;
 
@@ -20,10 +20,11 @@ class jsonCarsResourceCollection extends ResourceCollection
      */
     public function __construct($resource, $dateFilter)
     {
-        // Ensure you call the parent constructor
+        // Initiliaze the ResourceCollection
         parent::__construct($resource);
         $this->resource = $resource;
 
+        // Assign $dateFilter a value
         $this->dateFilter = $dateFilter;
     }
     /**
@@ -34,6 +35,7 @@ class jsonCarsResourceCollection extends ResourceCollection
      */
     public function toArray($request)
     {
+        // Map all the Car Resources into a collection and provide them with the $dateFilter
         return $this->collection->map(function(jsonCarsResource $resource) use($request){
             return $resource->dateFilter($this->dateFilter)->toArray($request);
         })->all();

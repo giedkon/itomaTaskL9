@@ -24,7 +24,8 @@ class jsonCarsRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => 'date'
+            'date' => 'date',
+            'page' => 'integer'
         ];
     }
 }

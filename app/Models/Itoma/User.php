@@ -9,5 +9,8 @@ class User extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string Table override
+     */
     protected $table = 'users';
 }

@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Unsecured API route
 Route::controller(CarDataController::class)->group(function () {
     Route::get('/jsonCars', 'jsonCars');
 });

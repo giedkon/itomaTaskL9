@@ -17,6 +17,7 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
+        // Seed departments & users for the given department
         Department::factory()
         ->count(50)
         ->has(User::factory()->count(random_int(0, 50), 'users'))

@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            // Seed departments, users & statuses first so they can be used in CarStatus & CarManagement
             DepartmentSeeder::class,
             StatusSeeder::class,
+            // Seed Car, CarStatus & CarManagement models with relationships
             CarSeeder::class,
         ]);
     }

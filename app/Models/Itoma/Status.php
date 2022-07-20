@@ -9,5 +9,8 @@ class Status extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string Table override
+     */
     protected $table = 'statuses';
 }

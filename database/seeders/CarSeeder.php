@@ -18,6 +18,8 @@ class CarSeeder extends Seeder
      */
     public function run()
     {
+        // Create cars and assign statuses & management to them
+        // Status and management change weekly
         $countCars = 100;
         $countStatusForCars = 20;
         $countManagementForCars = 20;
@@ -29,14 +31,14 @@ class CarSeeder extends Seeder
                 ->sequence(fn ($sequence) => [
                     'cars_id' => $sequence->index,
                     'date_from' => Carbon::now()->addMonth(2)->subWeek($sequence->index - ($countStatusForCars * (count(Car::get()) - 1))),
-                    'date_to' => Carbon::now()->addMonth(2)->subWeek(($sequence->index - 1)  - ($countStatusForCars * (count(Car::get()) - 1)))
+                    'date_to' => Carbon::now()->subDay(1)->addMonth(2)->subWeek(($sequence->index - 1)  - ($countStatusForCars * (count(Car::get()) - 1)))
                 ]))
             ->has(CarManagement::factory()
                 ->count($countManagementForCars)
                 ->sequence(fn ($sequence) => [
                     'cars_id' => $sequence->index,
                     'date_from' => Carbon::now()->addMonth(2)->subWeek($sequence->index - ($countStatusForCars * (count(Car::get()) - 1))),
-                    'date_to' => Carbon::now()->addMonth(2)->subWeek(($sequence->index - 1)  - ($countStatusForCars * (count(Car::get()) - 1)))
+                    'date_to' => Carbon::now()->subDay(1)->addMonth(2)->subWeek(($sequence->index - 1)  - ($countStatusForCars * (count(Car::get()) - 1)))
                 ]))
             ->create();
     }
